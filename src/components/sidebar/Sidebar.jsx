@@ -18,7 +18,7 @@ import { useContext } from "react";
 const Sidebar = () => {
  const { dispatch } = useContext(DarkModeContext);
  const userLinks = [
-  { path: "/users", label: "Students", icon: <PersonOutlineIcon /> },
+  { path: "/users/student", label: "Students", icon: <PersonOutlineIcon /> },
   { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon /> },
   { path: "/users/faculty", label: "Faculty", icon: <Person4Icon /> },
   { path: "/users/coordinator", label: "Coordinator", icon: <SupportAgentIcon /> },
