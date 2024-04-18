@@ -3,6 +3,14 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
+import Student from "./pages/list/Users/Student";
+import Almuni from "./pages/list/Users/Almuni";
+import Faculty from "./pages/list/Users/Faculty";
+import Coordinator from "./pages/list/Users/Coordinator";
+import Post from "./pages/list/Contents/Post";
+import News from "./pages/list/Contents/News";
+import Announcment from "./pages/list/Contents/Announcment";
+import Event from "./pages/list/Contents/Event";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -42,6 +50,41 @@ function App() {
                   </RequireAuth>
                 }
               />
+
+              <Route
+                path="student"
+                element={
+                  <RequireAuth>
+                    <Student/>
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="coordinator"
+                element={
+                  <RequireAuth>
+                    <Coordinator/>
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="almuni"
+                element={
+                  <RequireAuth>
+                    <Almuni/>
+                  </RequireAuth>
+                }
+              />
+              
+              <Route
+                path="faculty"
+                element={
+                  <RequireAuth>
+                    <Faculty/>
+                  </RequireAuth>
+                }
+              />
+
               <Route
                 path=":userId"
                 element={
@@ -59,7 +102,8 @@ function App() {
                 }
               />
             </Route>
-            <Route path="products">
+
+            <Route path="contents">
               <Route
                 index
                 element={
@@ -68,8 +112,43 @@ function App() {
                   </RequireAuth>
                 }
               />
+
               <Route
-                path=":productId"
+                path="post"
+                element={
+                  <RequireAuth>
+                    <Post/>
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="news"
+                element={
+                  <RequireAuth>
+                    <News/>
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="announcment"
+                element={
+                  <RequireAuth>
+                    <Announcment/>
+                  </RequireAuth>
+                }
+              />
+              
+              <Route
+                path="event"
+                element={
+                  <RequireAuth>
+                    <Event/>
+                  </RequireAuth>
+                }
+              />
+
+              <Route
+                path=":contentId"
                 element={
                   <RequireAuth>
                     <Single />
@@ -80,11 +159,15 @@ function App() {
                 path="new"
                 element={
                   <RequireAuth>
-                    <New inputs={productInputs} title="Add New Product" />
+                    <New inputs={userInputs} title="Add New Content" />
                   </RequireAuth>
                 }
               />
             </Route>
+
+            
+            
+
           </Route>
         </Routes>
       </BrowserRouter>

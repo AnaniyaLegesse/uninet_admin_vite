@@ -19,16 +19,16 @@ const Sidebar = () => {
  const { dispatch } = useContext(DarkModeContext);
  const userLinks = [
   { path: "/users", label: "Students", icon: <PersonOutlineIcon /> },
-  { path: "/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon /> },
-  { path: "/faculty", label: "Faculty", icon: <Person4Icon /> },
-  { path: "/coordinator", label: "Coordinator", icon: <SupportAgentIcon /> },
+  { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon /> },
+  { path: "/users/faculty", label: "Faculty", icon: <Person4Icon /> },
+  { path: "/users/coordinator", label: "Coordinator", icon: <SupportAgentIcon /> },
 ];
 
 const contentLinks = [
-  { path: "/posts", label: "Posts", icon: <FeedIcon /> },
-  { path: "/news", label: "News", icon: <NewspaperIcon /> },
-  { path: "/announcment", label: "Announcement", icon: <AnnouncementIcon /> },
-  { path: "/event", label: "Event", icon: <EventIcon /> },
+  { path: "/contents/post", label: "Posts", icon: <FeedIcon /> },
+  { path: "/contents/news", label: "News", icon: <NewspaperIcon /> },
+  { path: "/contents/announcment", label: "Announcement", icon: <AnnouncementIcon /> },
+  { path: "/contents/event", label: "Event", icon: <EventIcon /> },
 ];
 
 const serviceLinks = [
