@@ -42,20 +42,12 @@ function App() {
               }
             />
             <Route path="users">
-              <Route
-                index
-                element={
-                  <RequireAuth>
-                    <List />
-                  </RequireAuth>
-                }
-              />
 
               <Route
                 path="student"
                 element={
                   <RequireAuth>
-                    <Student/>
+                    <List tableType="student" />
                   </RequireAuth>
                 }
               />
@@ -63,7 +55,7 @@ function App() {
                 path="coordinator"
                 element={
                   <RequireAuth>
-                    <Coordinator/>
+                    <List tableType="coordinator" />
                   </RequireAuth>
                 }
               />
@@ -71,7 +63,7 @@ function App() {
                 path="almuni"
                 element={
                   <RequireAuth>
-                    <Almuni/>
+                    <List tableType="almuni" />
                   </RequireAuth>
                 }
               />
@@ -80,7 +72,7 @@ function App() {
                 path="faculty"
                 element={
                   <RequireAuth>
-                    <Faculty/>
+                    <List tableType="faculty" />
                   </RequireAuth>
                 }
               />
@@ -104,20 +96,12 @@ function App() {
             </Route>
 
             <Route path="contents">
-              <Route
-                index
-                element={
-                  <RequireAuth>
-                    <List />
-                  </RequireAuth>
-                }
-              />
 
               <Route
                 path="post"
                 element={
                   <RequireAuth>
-                    <Post/>
+                    <List tableType="post" />
                   </RequireAuth>
                 }
               />
@@ -125,7 +109,7 @@ function App() {
                 path="news"
                 element={
                   <RequireAuth>
-                    <News/>
+                    <List tableType="news" />
                   </RequireAuth>
                 }
               />
@@ -133,7 +117,7 @@ function App() {
                 path="announcment"
                 element={
                   <RequireAuth>
-                    <Announcment/>
+                    <List tableType="announcment" />
                   </RequireAuth>
                 }
               />
@@ -142,7 +126,7 @@ function App() {
                 path="event"
                 element={
                   <RequireAuth>
-                    <Event/>
+                    <List tableType="event" />
                   </RequireAuth>
                 }
               />
