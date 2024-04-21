@@ -27,7 +27,10 @@ const StudentTable = () => {
         snapShot.docs.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
-        setData(list);
+        const filteredData = list.filter((user) => user.userType === "student");
+
+        setData(filteredData);
+        
       },
       (error) => {
         console.log(error);

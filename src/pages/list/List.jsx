@@ -18,7 +18,7 @@ const tableComponents = {
   post: <PostTable />,
   news: <NewsTable />,
   event: <EventTable />,
-  announcement: <AnnouncmentTable />,
+  announcment: <AnnouncmentTable />,
 };
 
 const List = ({ tableType }) => {

@@ -27,7 +27,9 @@ const CoordinatorTable = () => {
         snapShot.docs.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
-        setData(list);
+        const filteredData = list.filter((user) => user.userType === "coordinator");
+
+        setData(filteredData);
       },
       (error) => {
         console.log(error);

@@ -25,6 +25,7 @@ const Datatable = () => {
         snapShot.docs.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
+        
         setData(list);
       },
       (error) => {
