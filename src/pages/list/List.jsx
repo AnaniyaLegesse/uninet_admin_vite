@@ -9,16 +9,18 @@ import PostTable from "../../components/datatable/Contents/PostTable"
 import NewsTable from "../../components/datatable/Contents/NewsTable"
 import EventTable from "../../components/datatable/Contents/EventTable"
 import AnnouncmentTable from "../../components/datatable/Contents/AnnouncmentTable"
+import DataTable from "../../components/datatable/Datatable"
+
 
 const tableComponents = {
-  student: <StudentTable />,
-  almuni: <AlmuniTable />,
-  faculty: <FacultyTable />,
-  coordinator: <CoordinatorTable />,
-  post: <PostTable />,
-  news: <NewsTable />,
-  event: <EventTable />,
-  announcment: <AnnouncmentTable />,
+  student: <StudentTable/>,
+  almuni: <AlmuniTable/>,
+  faculty: <FacultyTable/>,
+  coordinator: <CoordinatorTable/>,
+  post: <PostTable/>,
+  news: <NewsTable/>,
+  event: <EventTable/>,
+  announcment: <AnnouncmentTable/>,
 };
 
 const List = ({ tableType }) => {
@@ -29,7 +31,7 @@ const List = ({ tableType }) => {
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        {table}
+        {table} 
       </div>
     </div>
   );

@@ -26,6 +26,8 @@ const Datatable = () => {
           list.push({ id: doc.id, ...doc.data() });
         });
         
+        const filteredData = data.filter((item) => item.userType === userType);
+
         setData(list);
       },
       (error) => {
