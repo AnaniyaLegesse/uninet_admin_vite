@@ -1,48 +1,38 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns,} from "./datatablesource";
+import {
+  userColumns,
+  contentColumns,
+} from "./datatablesource"; 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   collection,
   getDocs,
-  deleteDoc,
-  doc,
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
-const Datatable = () => {
+function Datatable({ collectionType, docType }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-
-    // LISTEN (REALTIME)
     const unsub = onSnapshot(
-      collection(db, "users"),
-      (snapShot) => {
-        let list = [];
-        snapShot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
-        });
-        
-        const filteredData = data.filter((item) => item.userType === userType);
-
-        setData(list);
-      },
-      (error) => {
-        console.log(error);
+      collection(db, collectionType), // Use function to determine collection and filter
+      (snapshot) => {
+        const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        const filteredData = collectionType === "users" ? list.filter((user) => user.userType === docType) :
+                             collectionType === "contents" ? list.filter((content) => content.contentType === docType):null;
+        setData(filteredData);
       }
     );
 
-    return () => {
-      unsub();
-    };
-  }, []);
+    return () => unsub();
+  }, [docType]);
 
   const handleDelete = async (id) => {
     try {
-      await deleteDoc(doc(db, "users", id));
+      await deleteDoc(doc(db, collectionType , id));
       setData(data.filter((item) => item.id !== id));
     } catch (err) {
       console.log(err);
@@ -71,24 +61,25 @@ const Datatable = () => {
       },
     },
   ];
+
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        {docType}
+        <Link to={`/${collectionType}/new`} className="link">
           Add New
         </Link>
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={collectionType === "users" ? userColumns.concat(actionColumn) : contentColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
-        checkboxSelection
-      />
+        checkboxSelection />
     </div>
   );
-};
+}
 
 export default Datatable;

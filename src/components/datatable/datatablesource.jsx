@@ -37,3 +37,23 @@ export const userColumns = [
     },
   },
 ];
+
+export const contentColumns = [
+  { field: "id", headerName: "ID", width: 90 }, 
+  {
+    field: "title",
+    headerName: "Title",
+    width: 250,
+    
+    renderCell: (params) => (
+      <Link to={`/contents/${params.row.id}`}>
+        {params.row.title}
+      </Link>
+    ),
+  },
+  { field: "author", headerName: "Author", width: 150 }, 
+  { field: "contentType", headerName: "Type", width: 120 }, 
+  { field: "createdAt", headerName: "Created At", width: 170, type: "date" }, 
+  { field: "isActive", headerName: "Active", width: 90, type: "boolean" }, 
+];
+

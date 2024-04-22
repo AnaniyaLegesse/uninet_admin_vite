@@ -39,7 +39,7 @@ function App() {
                 path="student"
                 element={
                   <RequireAuth>
-                    <List tableType="student" />
+                    <List collectionType="users" docType="student" />
                   </RequireAuth>
                 }
               />
@@ -47,7 +47,7 @@ function App() {
                 path="coordinator"
                 element={
                   <RequireAuth>
-                    <List tableType="coordinator" />
+                    <List collectionType="users" docType="coordinator" />
                   </RequireAuth>
                 }
               />
@@ -55,7 +55,7 @@ function App() {
                 path="almuni"
                 element={
                   <RequireAuth>
-                    <List tableType="almuni" />
+                    <List collectionType="users" docType="almuni" />
                   </RequireAuth>
                 }
               />
@@ -64,7 +64,7 @@ function App() {
                 path="faculty"
                 element={
                   <RequireAuth>
-                    <List tableType="faculty" />
+                    <List collectionType="users" docType="faculty" />
                   </RequireAuth>
                 }
               />
@@ -93,7 +93,7 @@ function App() {
                 path="post"
                 element={
                   <RequireAuth>
-                    <List tableType="post" />
+                    <List collectionType="contents" docType="post" />
                   </RequireAuth>
                 }
               />
@@ -101,7 +101,7 @@ function App() {
                 path="news"
                 element={
                   <RequireAuth>
-                    <List tableType="news" />
+                    <List collectionType="contents" docType="news" />
                   </RequireAuth>
                 }
               />
@@ -109,7 +109,7 @@ function App() {
                 path="announcment"
                 element={
                   <RequireAuth>
-                    <List tableType="announcment" />
+                    <List collectionType="contents" docType="announcment" />
                   </RequireAuth>
                 }
               />
@@ -118,7 +118,7 @@ function App() {
                 path="event"
                 element={
                   <RequireAuth>
-                    <List tableType="event" />
+                    <List collectionType="contents" docType="event" />
                   </RequireAuth>
                 }
               />
