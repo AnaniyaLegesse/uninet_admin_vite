@@ -4,7 +4,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import FeedIcon from "@mui/icons-material/Feed";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import RecommendIcon from '@mui/icons-material/Recommend';
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -37,6 +37,7 @@ const Widget = ({ type }) => {
         title: "CONTENTS",
         isMoney: false,
         link: "View all contents",
+        query:"contents",
         icon: (
           <FeedIcon
             className="icon"
@@ -48,35 +49,21 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "earning":
+    case "reaction":
       data = {
-        title: "EARNINGS",
-        isMoney: true,
-        link: "View net earnings",
+        title: "REACTIONS",
+        isMoney: false,
+        link: "View net reactions",
+        query:"reactions",
         icon: (
-          <MonetizationOnOutlinedIcon
+          <RecommendIcon
             className="icon"
-            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
+            style={{ backgroundColor: "rgba(77, 71, 253, 0.2)", color: "blue" }}
           />
         ),
       };
       break;
-    case "product":
-      data = {
-        title: "PRODUCTS",
-        query:"products",
-        link: "See details",
-        icon: (
-          <AccountBalanceWalletOutlinedIcon
-            className="icon"
-            style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
-            }}
-          />
-        ),
-      };
-      break;
+    
     default:
       break;
   }
