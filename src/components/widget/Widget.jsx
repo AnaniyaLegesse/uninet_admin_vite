@@ -3,7 +3,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import FeedIcon from "@mui/icons-material/Feed";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
@@ -32,13 +32,13 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "content":
       data = {
-        title: "ORDERS",
+        title: "CONTENTS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all contents",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <FeedIcon
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",

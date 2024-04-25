@@ -18,24 +18,24 @@ import { useContext } from "react";
 const Sidebar = () => {
  const { dispatch } = useContext(DarkModeContext);
  const userLinks = [
-  { path: "/users/student", label: "Students", icon: <PersonOutlineIcon /> },
-  { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon /> },
-  { path: "/users/faculty", label: "Faculty", icon: <Person4Icon /> },
-  { path: "/users/coordinator", label: "Coordinator", icon: <SupportAgentIcon /> },
+  { path: "/users/student", label: "Students", icon: <PersonOutlineIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/users/faculty", label: "Faculty", icon: <Person4Icon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/users/coordinator", label: "Coordinator", icon: <SupportAgentIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];
 
 const contentLinks = [
-  { path: "/contents/post", label: "Posts", icon: <FeedIcon /> },
-  { path: "/contents/news", label: "News", icon: <NewspaperIcon /> },
-  { path: "/contents/announcment", label: "Announcement", icon: <AnnouncementIcon /> },
-  { path: "/contents/event", label: "Event", icon: <EventIcon /> },
+  { path: "/contents/post", label: "Posts", icon: <FeedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/contents/news", label: "News", icon: <NewspaperIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/contents/announcment", label: "Announcement", icon: <AnnouncementIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/contents/event", label: "Event", icon: <EventIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];
 
 const serviceLinks = [
-  { path: "/users", label: "Profile", icon: <AccountCircleOutlinedIcon /> },
-  { path: "/notifications", label: "Notification", icon: <NotificationsNoneRoundedIcon /> },
-  { path: "/settings", label: "Settings", icon: <SettingsApplicationsIcon /> },
-  { path: "/logout", label: "Logout", icon: <ExitToAppIcon /> },
+  { path: "/users", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/notifications", label: "Notification", icon: <NotificationsNoneRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/settings", label: "Settings", icon: <SettingsApplicationsIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/logout", label: "Logout", icon: <ExitToAppIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];
 
 return (
