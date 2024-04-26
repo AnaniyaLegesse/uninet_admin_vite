@@ -9,6 +9,9 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
+import Profile from "./pages/profile/Profile";
+import Setting from "./pages/setting/Setting";
+import Notification from "./pages/notification/Notification";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -141,6 +144,92 @@ function App() {
               />
             </Route>
 
+  <Route path="users">
+
+              <Route
+                path="student"
+                element={
+                  <RequireAuth>
+                    <List collectionType="users" docType="student" />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="coordinator"
+                element={
+                  <RequireAuth>
+                    <List collectionType="users" docType="coordinator" />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="almuni"
+                element={
+                  <RequireAuth>
+                    <List collectionType="users" docType="almuni" />
+                  </RequireAuth>
+                }
+              />
+              
+              <Route
+                path="faculty"
+                element={
+                  <RequireAuth>
+                    <List collectionType="users" docType="faculty" />
+                  </RequireAuth>
+                }
+              />
+
+              <Route
+                path=":userId"
+                element={
+                  <RequireAuth>
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <New inputs={userInputs} title="Add New User" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+
+            <Route path="service">
+
+            <Route
+              path="profile"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            
+            <Route
+              path="notification"
+              element={
+                <RequireAuth>
+                  <Notification />
+                </RequireAuth>
+              }
+            />
+            
+            <Route
+              path="setting"
+              element={
+                <RequireAuth>
+                  <Setting />
+                </RequireAuth>
+              }
+            />
+
+
+            </Route>
+            
             
             
 

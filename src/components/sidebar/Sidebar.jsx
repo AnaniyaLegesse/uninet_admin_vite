@@ -32,10 +32,10 @@ const contentLinks = [
 ];
 
 const serviceLinks = [
-  { path: "/users", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/notifications", label: "Notification", icon: <NotificationsNoneRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/settings", label: "Settings", icon: <SettingsApplicationsIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/logout", label: "Logout", icon: <ExitToAppIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/service/profile", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/service/notification", label: "Notification", icon: <NotificationsNoneRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/service/setting", label: "Settings", icon: <SettingsApplicationsIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/service/logout", label: "Logout", icon: <ExitToAppIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];
 
 return (
