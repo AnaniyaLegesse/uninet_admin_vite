@@ -12,6 +12,7 @@ import {
 import { db } from "../../firebase";
 
 
+
 const ContentTable = ({docType}) => {
  
     const [data, setData] = useState([]);
@@ -31,7 +32,7 @@ const ContentTable = ({docType}) => {
   
     const handleDelete = async (id) => {
       try {
-        await deleteDoc(doc(db, users , id));
+        await deleteDoc(doc(db, contents , id));
         setData(data.filter((item) => item.id !== id));
       } catch (err) {
         console.log(err);
@@ -46,7 +47,7 @@ const ContentTable = ({docType}) => {
         renderCell: (params) => {
           return (
             <div className="cellAction">
-              <Link to="/contents/test" style={{ textDecoration: "none" }}>
+              <Link to="/users/test" style={{ textDecoration: "none" }}>
                 <div className="viewButton">View</div>
               </Link>
               <div
@@ -66,9 +67,6 @@ const ContentTable = ({docType}) => {
       <div className="datatable">
         <div className="datatableTitle">
           {docType}
-          <Link to="/contents/new" className="link">
-            Add New
-          </Link>
         </div>
         <DataGrid
           className="datagrid"

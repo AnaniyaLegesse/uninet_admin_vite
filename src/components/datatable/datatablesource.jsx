@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const userColumns = [
   { field: "id", headerName: "ID", width: 70 },
   {
@@ -39,21 +41,38 @@ export const userColumns = [
 ];
 
 export const contentColumns = [
-  { field: "id", headerName: "ID", width: 90 }, 
+  { field: "id", headerName: "ID", width: 70 }, 
   {
     field: "title",
     headerName: "Title",
-    width: 250,
+    width: 230,
+
+  
     
-    renderCell: (params) => (
-      <Link to={`/contents/${params.row.id}`}>
-        {params.row.title}
-      </Link>
-    ),
+    // renderCell: (params) => (
+    //   <Link to={`/contents/${params.row.id}`}>
+    //     {params.row.title}
+    //   </Link>
+    // ),
   },
   { field: "author", headerName: "Author", width: 150 }, 
-  { field: "contentType", headerName: "Type", width: 120 }, 
-  { field: "createdAt", headerName: "Created At", width: 170, type: "date" }, 
-  { field: "isActive", headerName: "Active", width: 90, type: "boolean" }, 
+
+  { 
+    field: "createdAt", 
+    headerName: "Created At", 
+    width: 170, type: "date",
+    valueGetter: (params) => moment(params.row.createdAt).toDate(),}, 
+  {
+    field: "status",
+    headerName: "Status",
+    width: 160,
+    renderCell: (params) => {
+      return (
+        <div className={`cellWithStatus ${params.row.status}`}>
+          {params.row.status}
+        </div>
+      );
+    },
+  },, 
 ];
 

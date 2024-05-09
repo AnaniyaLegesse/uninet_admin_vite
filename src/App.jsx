@@ -42,7 +42,7 @@ function App() {
                 path="student"
                 element={
                   <RequireAuth>
-                    <List collectionType="users" docType="student" />
+                    <List DBcollection="users" docType="student" />
                   </RequireAuth>
                 }
               />
@@ -50,7 +50,7 @@ function App() {
                 path="coordinator"
                 element={
                   <RequireAuth>
-                    <List collectionType="users" docType="coordinator" />
+                    <List DBcollection="users" docType="coordinator" />
                   </RequireAuth>
                 }
               />
@@ -58,7 +58,7 @@ function App() {
                 path="almuni"
                 element={
                   <RequireAuth>
-                    <List collectionType="users" docType="almuni" />
+                    <List DBcollection="users" docType="almuni" />
                   </RequireAuth>
                 }
               />
@@ -67,7 +67,7 @@ function App() {
                 path="faculty"
                 element={
                   <RequireAuth>
-                    <List collectionType="users" docType="faculty" />
+                    <List DBcollection="users" docType="faculty" />
                   </RequireAuth>
                 }
               />
@@ -96,7 +96,7 @@ function App() {
                 path="post"
                 element={
                   <RequireAuth>
-                    <List collectionType="contents" docType="post" />
+                    <List DBcollection="contents" docType="post" />
                   </RequireAuth>
                 }
               />
@@ -104,7 +104,7 @@ function App() {
                 path="news"
                 element={
                   <RequireAuth>
-                    <List collectionType="contents" docType="news" />
+                    <List DBcollection="contents" docType="news" />
                   </RequireAuth>
                 }
               />
@@ -112,7 +112,7 @@ function App() {
                 path="announcment"
                 element={
                   <RequireAuth>
-                    <List collectionType="contents" docType="announcment" />
+                    <List DBcollection="contents" docType="announcment" />
                   </RequireAuth>
                 }
               />
@@ -121,7 +121,7 @@ function App() {
                 path="event"
                 element={
                   <RequireAuth>
-                    <List collectionType="contents" docType="event" />
+                    <List DBcollection="contents" docType="event" />
                   </RequireAuth>
                 }
               />
@@ -139,60 +139,6 @@ function App() {
                 element={
                   <RequireAuth>
                     <New inputs={userInputs} title="Add New Content" />
-                  </RequireAuth>
-                }
-              />
-            </Route>
-
-  <Route path="users">
-
-              <Route
-                path="student"
-                element={
-                  <RequireAuth>
-                    <List collectionType="users" docType="student" />
-                  </RequireAuth>
-                }
-              />
-              <Route
-                path="coordinator"
-                element={
-                  <RequireAuth>
-                    <List collectionType="users" docType="coordinator" />
-                  </RequireAuth>
-                }
-              />
-              <Route
-                path="almuni"
-                element={
-                  <RequireAuth>
-                    <List collectionType="users" docType="almuni" />
-                  </RequireAuth>
-                }
-              />
-              
-              <Route
-                path="faculty"
-                element={
-                  <RequireAuth>
-                    <List collectionType="users" docType="faculty" />
-                  </RequireAuth>
-                }
-              />
-
-              <Route
-                path=":userId"
-                element={
-                  <RequireAuth>
-                    <Single />
-                  </RequireAuth>
-                }
-              />
-              <Route
-                path="new"
-                element={
-                  <RequireAuth>
-                    <New inputs={userInputs} title="Add New User" />
                   </RequireAuth>
                 }
               />
@@ -229,9 +175,6 @@ function App() {
 
 
             </Route>
-            
-            
-            
 
           </Route>
         </Routes>

@@ -5,14 +5,16 @@ import UserTable from "../../components/datatable/UserTable";
 import ContentTable from "../../components/datatable/ContentTable";
 
 
-const List = ({docType }) => {
+const List = ({DBcollection, docType }) => {
   
   return (
     <div className="list">
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <UserTable docType={docType} />
+        {DBcollection==="users"? <UserTable docType={docType} />:
+            DBcollection==="contents"? <ContentTable docType={docType}/> :null }
+        
       </div>
     </div>
   );
