@@ -12,6 +12,8 @@ import { AuthContext } from "./context/AuthContext";
 import Profile from "./pages/profile/Profile";
 import Setting from "./pages/setting/Setting";
 import Notification from "./pages/notification/Notification";
+import SignIn from "./pages/sign-in/SignIn";
+import SignUp from "./pages/sign-up/SignUp";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -28,6 +30,9 @@ function App() {
         <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
+            <Route path="signin" element={<SignIn />} />
+            <Route path="signup" element={<SignUp />} />
+
             <Route
               index
               element={
@@ -36,6 +41,7 @@ function App() {
                 </RequireAuth>
               }
             />
+
             <Route path="users">
 
               <Route
