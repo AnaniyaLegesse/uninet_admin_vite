@@ -4,7 +4,7 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { contentInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -49,14 +49,6 @@ function App() {
                 element={
                   <RequireAuth>
                     <List DBcollection="users" docType="student" />
-                  </RequireAuth>
-                }
-              />
-              <Route
-                path="coordinator"
-                element={
-                  <RequireAuth>
-                    <List DBcollection="users" docType="coordinator" />
                   </RequireAuth>
                 }
               />
@@ -123,14 +115,14 @@ function App() {
                 }
               />
               
-              <Route
+              {/* <Route
                 path="event"
                 element={
                   <RequireAuth>
                     <List DBcollection="contents" docType="event" />
                   </RequireAuth>
                 }
-              />
+              /> */}
 
               <Route
                 path=":contentId"
@@ -144,7 +136,7 @@ function App() {
                 path="new"
                 element={
                   <RequireAuth>
-                    <New inputs={userInputs} title="Add New Content" />
+                    <New inputs={contentInputs} title="Add New Content" />
                   </RequireAuth>
                 }
               />
@@ -161,14 +153,14 @@ function App() {
               }
             />
             
-            <Route
+            {/* <Route
               path="notification"
               element={
                 <RequireAuth>
                   <Notification />
                 </RequireAuth>
               }
-            />
+            /> */}
             
             <Route
               path="setting"

@@ -21,19 +21,18 @@ const Sidebar = () => {
   { path: "/users/student", label: "Students", icon: <PersonOutlineIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
   { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
   { path: "/users/faculty", label: "Faculty", icon: <Person4Icon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/users/coordinator", label: "Coordinator", icon: <SupportAgentIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];
 
 const contentLinks = [
   { path: "/contents/post", label: "Posts", icon: <FeedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
   { path: "/contents/news", label: "News", icon: <NewspaperIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
   { path: "/contents/announcment", label: "Announcement", icon: <AnnouncementIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/contents/event", label: "Event", icon: <EventIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  // { path: "/contents/event", label: "Event", icon: <EventIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];
 
 const serviceLinks = [
   { path: "/service/profile", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/service/notification", label: "Notification", icon: <NotificationsNoneRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  // { path: "/service/notification", label: "Notification", icon: <NotificationsNoneRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
   { path: "/service/setting", label: "Settings", icon: <SettingsApplicationsIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
   { path: "/service/logout", label: "Logout", icon: <ExitToAppIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
 ];

@@ -27,14 +27,14 @@ const UserTable = ({docType}) => {
         return () => unsub();
       }, [docType]);
   
-    const handleDelete = async (id) => {
-      try {
-        await deleteDoc(doc(db, users , id));
-        setData(data.filter((item) => item.id !== id));
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    // const handleDelete = async (id) => {
+    //   try {
+    //     await deleteDoc(doc(db, users , id));
+    //     setData(data.filter((item) => item.id !== id));
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
   
     const actionColumn = [
       {
@@ -44,15 +44,17 @@ const UserTable = ({docType}) => {
         renderCell: (params) => {
           return (
             <div className="cellAction">
-              <Link to="/users/test" style={{ textDecoration: "none" }}>
+              <Link to={`/users/${params.row.id}`} style={{ textDecoration: "none" }}>
                 <div className="viewButton">View</div>
               </Link>
-              <div
+
+              {/* <div
                 className="deleteButton"
                 onClick={() => handleDelete(params.row.id)}
               >
                 Delete
-              </div>
+              </div> */}
+
             </div>
           );
         },

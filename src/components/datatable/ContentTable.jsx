@@ -67,6 +67,9 @@ const ContentTable = ({docType}) => {
       <div className="datatable">
         <div className="datatableTitle">
           {docType}
+          <Link to="/contents/new" className="link">
+            Add New
+          </Link>
         </div>
         <DataGrid
           className="datagrid"

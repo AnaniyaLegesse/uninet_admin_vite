@@ -26,7 +26,7 @@ const New = ({ inputs, title }) => {
       const name = new Date().getTime() + file.name;
 
       console.log(name);
-      const storageRef = ref(storage, file.name);
+      const storageRef = ref(storage, `profileImages/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
@@ -121,16 +121,33 @@ const New = ({ inputs, title }) => {
               </div>
 
               {inputs.map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
+            <div className="formInput" key={input.id}>
+              <label>{input.label}</label>
+              {input.type === "select" ? (
+                <div className="select-wrapper">
+            <select
+              id={input.id}
+              placeholder={input.placeholder}
+              onChange={handleInput}
+            >
+              <option value="">{input.placeholder}</option>
+              {input.options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+              </select>
+              </div>
+                ) : (
                   <input
                     id={input.id}
                     type={input.type}
                     placeholder={input.placeholder}
                     onChange={handleInput}
                   />
-                </div>
-              ))}
+                )}
+              </div>
+            ))}
               <button disabled={per !== null && per < 100} type="submit">
                 Send
               </button>
