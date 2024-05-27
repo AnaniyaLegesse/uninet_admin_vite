@@ -66,9 +66,7 @@ const UserTable = ({docType}) => {
       <div className="datatable">
         <div className="datatableTitle">
           {docType}
-          <Link to="/users/new" className="link">
-            Add New
-          </Link>
+         
         </div>
         <DataGrid
           className="datagrid"

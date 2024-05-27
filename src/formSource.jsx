@@ -1,24 +1,41 @@
 export const userInputs = [
-  {
-    id: "usertype",
-    label: "User Type",
-    type: "select",
-    options: [
-      { value: "student", label: "Student" },
-      { value: "almuni", label: "almuni" },
-      { value: "faculty", label: "faculty" },
-    ],
-    placeholder: "Select user Type",
-  },
-  {
-    id: "displayName",
-    label: "Name and surname",
-    type: "text",
-    placeholder: "Enter Name",
-  },
 
-  {
-    id: "university",
+  {id: "name",
+    label: "Full name",
+    type: "text",
+    placeholder: "Enter your Full-Name",
+  },
+  { id: "username",
+  label: "Username",
+  type: "text",
+  placeholder: "Enter USer Name",
+},
+  {id: "email",
+  label: "Email",
+  type: "mail",
+  placeholder: "Enter Email Adress",
+  },
+  { id: "uid",
+  label: "ID",
+  type: "string",
+  placeholder: "Enter ID number",
+  },
+  { id: "password",
+    label: "Password",
+    type: "password",
+    placeholder: "Enter Password",
+  },
+  {id: "userType",
+  label: "User Type",
+  type: "select",
+  options: [
+    { value: "student", label: "Student" },
+    { value: "almuni", label: "almuni" },
+    { value: "faculty", label: "faculty" },
+  ],
+  placeholder: "Select user Type",
+  },
+  { id: "university",
     label: "University",
     type: "select",
     placeholder: "Select University",
@@ -61,14 +78,7 @@ export const userInputs = [
       { value: "wollega_university", label: "Wollega University" }
     ]
   },
-  {
-    id: "username",
-    label: "Username",
-    type: "text",
-    placeholder: "Enter USer Name",
-  },
-  {
-    id: "department",
+  { id: "department",
     label: "Department",
     type: "select",
     placeholder: "Select Department",
@@ -114,62 +124,41 @@ export const userInputs = [
       { value: "veterinary_medicine", label: "Veterinary Medicine" }
     ]
   },
-  {
-    id: "email",
-    label: "Email",
-    type: "mail",
-    placeholder: "Enter Email Adress",
-  },
-  
-  {
-    id: "password",
-    label: "Password",
-    type: "password",
-    placeholder: "Enter Password",
-  },
-  
 ];
 
 
 export const contentInputs = [
-  {
-    id: "contentType",
-    label: "Content Type",
-    type: "select",
-    options: [
-      { value: "post", label: "Post" },
-      { value: "news", label: "News" },
-      { value: "announcment", label: "Announcment" },
-    ],
-    placeholder: "Select content Type",
-  },
-  
-  {
-    id: "title",
+  {id: "title",
     label: "Title",
     type: "text",
     placeholder: "Enter Title",
   },
-  {
-    id: "description",
+  {id: "description",
     label: "Description",
     type: "text",
     placeholder: "Enter Description",
   },
-  {
-    id: "author",
+  {id: "author",
     label: "Author",
     type: "text",
     placeholder: "Enter Author's name",
   },
-  {
-    id: "createdDate",
+  {id: "createdDate",
     label: "Created Date",
     type: "date",
     placeholder: "Select a date",
   },
-  {
-    id: "university",
+  { id: "contentType",
+  label: "Content Type",
+  type: "select",
+  options: [
+    { value: "post", label: "Post" },
+    { value: "news", label: "News" },
+    { value: "announcment", label: "Announcment" },
+  ],
+  placeholder: "Select content Type",
+ },
+  {id: "university",
     label: "University",
     type: "select",
     placeholder: "Select University",
@@ -212,8 +201,7 @@ export const contentInputs = [
       { value: "wollega_university", label: "Wollega University" }
     ]
   },
-  {
-    id: "department",
+  {id: "department",
     label: "Department",
     type: "select",
     placeholder: "Select Department",

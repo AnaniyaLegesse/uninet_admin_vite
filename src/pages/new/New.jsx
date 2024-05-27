@@ -14,6 +14,7 @@ import { auth, db, storage } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
@@ -91,35 +92,16 @@ const New = ({ inputs, title }) => {
     <div className="new">
       <Sidebar />
       <div className="newContainer">
-        <Navbar />
-        <div className="top">
-          <h1>{title}</h1>
+        <Navbar /> 
+          <div className="Title">
+           {title} 
+          <Link to="/users/new" className="link">
+            Upload CSV File
+          </Link>
         </div>
         <div className="bottom">
-          <div className="left">
-            <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            />
-          </div>
-          <div className="right">
+          {/* <div className="right"> */}
             <form onSubmit={handleAdd}>
-              <div className="formInput">
-                <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
-                />
-              </div>
-
               {inputs.map((input) => (
             <div className="formInput" key={input.id}>
               <label>{input.label}</label>
@@ -149,10 +131,10 @@ const New = ({ inputs, title }) => {
               </div>
             ))}
               <button disabled={per !== null && per < 100} type="submit">
-                Send
+                Submit
               </button>
             </form>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>

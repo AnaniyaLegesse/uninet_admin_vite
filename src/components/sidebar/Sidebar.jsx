@@ -1,16 +1,16 @@
 import "./sidebar.scss";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
-import Person4Icon from '@mui/icons-material/Person4';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
-import FeedIcon from '@mui/icons-material/Feed';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
-import EventIcon from '@mui/icons-material/Event';
-import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
+import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
@@ -18,23 +18,24 @@ import { useContext } from "react";
 const Sidebar = () => {
  const { dispatch } = useContext(DarkModeContext);
  const userLinks = [
-  { path: "/users/student", label: "Students", icon: <PersonOutlineIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/users/faculty", label: "Faculty", icon: <Person4Icon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/users/student", label: "Students", icon: <PersonOutlineIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/users/faculty", label: "Faculty", icon: <Person4OutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
 ];
 
 const contentLinks = [
-  { path: "/contents/post", label: "Posts", icon: <FeedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/contents/news", label: "News", icon: <NewspaperIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/contents/announcment", label: "Announcement", icon: <AnnouncementIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  // { path: "/contents/event", label: "Event", icon: <EventIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/contents/post", label: "Posts", icon: <FeedOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/contents/news", label: "News", icon: <NewspaperOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/contents/announcment", label: "Announcement", icon: <AnnouncementOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
 ];
 
 const serviceLinks = [
-  { path: "/service/profile", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  // { path: "/service/notification", label: "Notification", icon: <NotificationsNoneRoundedIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/service/setting", label: "Settings", icon: <SettingsApplicationsIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
-  { path: "/service/logout", label: "Logout", icon: <ExitToAppIcon style={{color: "rgb(77, 71, 253)", fontSize: "20px" }}/> },
+  { path: "/service/setting", label: "Settings", icon: <SettingsOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/users/new", label: "Add New User", icon: <PersonAddAltOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  // { path: "/contents/new", label: "Publish News", icon: <CloudUploadOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/service/profile", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/service/notification", label: "Notification", icon: <NotificationsOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+
 ];
 
 return (
