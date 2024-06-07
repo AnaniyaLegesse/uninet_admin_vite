@@ -22,7 +22,7 @@ const ContentTable = ({docType}) => {
           collection(db, "contents"),
           (snapshot) => {
             const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-            const filteredData = list.filter((content) => content.contentType === docType);
+            const filteredData = list.filter((content) => content.postType === docType);
             setData(filteredData);
           }
         );
@@ -30,14 +30,6 @@ const ContentTable = ({docType}) => {
         return () => unsub();
       }, [docType]);
   
-    const handleDelete = async (id) => {
-      try {
-        await deleteDoc(doc(db, contents , id));
-        setData(data.filter((item) => item.id !== id));
-      } catch (err) {
-        console.log(err);
-      }
-    };
   
     const actionColumn = [
       {
@@ -47,15 +39,10 @@ const ContentTable = ({docType}) => {
         renderCell: (params) => {
           return (
             <div className="cellAction">
-              <Link to="/users/test" style={{ textDecoration: "none" }}>
+              <Link to={`/contents/${params.row.id}`} style={{ textDecoration: "none" }}>
                 <div className="viewButton">View</div>
               </Link>
-              <div
-                className="deleteButton"
-                onClick={() => handleDelete(params.row.id)}
-              >
-                Delete
-              </div>
+            
             </div>
           );
         },

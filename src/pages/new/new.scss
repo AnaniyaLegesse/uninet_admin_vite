@@ -31,21 +31,7 @@
       padding: 10px;
       margin: 20px;
       display: flex;
-      // .left {
-      //   flex: 1;
-      //   text-align: center;
-
-      //   img {
-      //     width: 100px;
-      //     height: 100px;
-      //     border-radius: 50%;
-      //     object-fit: cover;
-      //   }
-      // }
-
-      // .right {
-      //   flex: 1;
-
+     
         form {
           display: flex;
           flex-wrap: wrap;
@@ -92,6 +78,21 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 font-size: 16px;
+              }
+            }
+
+            .password-field {
+              display: flex;
+            
+              .password-input {
+                flex: 4;
+                padding: 5px;
+              }
+              .generate-password-btn {
+                flex: 1;
+                font-size: 14px;
+                background-color: rgb(7, 135, 135);
+                color: rgb(255, 255, 255);
               }
             }
           }

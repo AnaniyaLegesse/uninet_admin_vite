@@ -1,0 +1,19 @@
+.uploader {
+    width: 100%;
+    display: flex;
+  
+    .uploaderContainer {
+      flex: 6;
+
+      .Title{
+        width: 98%;
+        font-size: 24px;
+        color: gray;
+        margin: 10px; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+    }
+}    

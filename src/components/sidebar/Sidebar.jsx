@@ -20,7 +20,9 @@ const Sidebar = () => {
  const userLinks = [
   { path: "/users/student", label: "Students", icon: <PersonOutlineIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
   { path: "/users/almuni", label: "Almuni", icon: <PeopleOutlineRoundedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
-  { path: "/users/faculty", label: "Faculty", icon: <Person4OutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/users/faculty", label: "Faculty Representative", icon: <Person4OutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/users/campus", label: "Campus Communicator", icon: <AccountCircleOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+
 ];
 
 const contentLinks = [
@@ -30,19 +32,16 @@ const contentLinks = [
 ];
 
 const serviceLinks = [
+  { path: "/service/addUser", label: "Add User", icon: <PersonAddAltOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
+  { path: "/service/uploadCsv", label: "UploadCSV", icon: <CloudUploadOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
   { path: "/service/setting", label: "Settings", icon: <SettingsOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
-  { path: "/users/new", label: "Add New User", icon: <PersonAddAltOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
-  // { path: "/contents/new", label: "Publish News", icon: <CloudUploadOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
-  { path: "/service/profile", label: "Profile", icon: <AccountCircleOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
-  { path: "/service/notification", label: "Notification", icon: <NotificationsOutlinedIcon style={{color: "rgb(76, 76, 195)", fontSize: "20px" }}/> },
-
 ];
 
 return (
   <div className="sidebar">
     <div className="top">
       <Link to="/" style={{ textDecoration: "none" }}>
-        <span className="logo">UniNET</span>
+        <span className="logo">UniLink</span>
       </Link>
     </div>
     <div className="center">

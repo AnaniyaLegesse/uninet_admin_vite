@@ -4,8 +4,7 @@ import "./home.scss";
 import Widget from "../../components/widget/Widget";
 import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
-import Table from "../../components/table/Table";
-import ContentTable from "../../components/datatable/ContentTable"
+
 
 const Home = () => {
   return (
@@ -14,13 +13,13 @@ const Home = () => {
       <div className="homeContainer">
         <Navbar />
         <div className="widgets">
-          <Widget type="user" />
-          <Widget type="content" />
-          <Widget type="reaction" />
+          <Widget type="post" />
+          <Widget type="news" />
+          <Widget type="announcment" />
         </div>
         <div className="charts">
           <Featured />
-          <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+          <Chart title="Last Week Review" aspect={2 / 1} />
         </div>
       </div>
     </div>

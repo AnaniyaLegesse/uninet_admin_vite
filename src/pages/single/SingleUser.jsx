@@ -6,8 +6,9 @@ import { db, storage } from '../../firebase';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import Table from "../../components/table/Table"
 
-const Single = () => {
+const SingleUser = () => {
   const { userId } = useParams();
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
@@ -53,11 +54,8 @@ const Single = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
-            <h1 className="title">Information</h1>
-            <div className="item">
-              {userData && userData.profileImageUrl ? (
-                <img src={userData.profileImageUrl} alt="" className="itemImg" />
+          {userData && userData.profileUrl ? (
+                <img src={userData.profileUrl} alt="" className="itemImg" />
               ) : (
                 <img
                   src="https://via.placeholder.com/150"
@@ -65,28 +63,60 @@ const Single = () => {
                   className="itemImg"
                 />
               )}
-              {userData ? (
-                <div className="details">
-                  <h2>{userData.username}</h2> 
-                  <p>bio: {userData.bio}</p>
-                  <p>Email: {userData.email}</p>
-                  <p>University: {userData.university}</p>
-                  <p>Department: {userData.department}</p>
-                  <p>UserType: {userData.userType}</p>
-                  <p>profileUrl: {userData.profileUrl}</p>
-                  <p>totalPost: {userData.totalPost}</p>
-                  <p>totalConnection: {userData.totalConnection}</p>
+              <h1 >{userData?.username || 'Unknown'}</h1>
+              <p>{userData?.userType || 'Unknown'}</p>  
+              <div className="summary">
+                <div className="item">
+                    <h2>{userData?.totalConnection || 0}</h2>
+                    <div className="itemTitle">Connection</div>
                 </div>
-              ) : (
-                <div>Loading...</div>
-              )}
+                <div className="item">
+                    <h2>{userData?.totalConnection || 0}</h2>
+                    <div className="itemTitle">Posts</div>
+                </div>
+        </div>
+          </div>
+
+          <div className="right">
+          <div className="details">
+            <div className="editButton">Edit</div>
+            <h2 className="itemTitle">Detail Informations</h2>
+
+            <div className="detailItem ">
+                <h3 className="itemKey">Full Name: </h3>
+                <h3 className="itemValue">{userData?.name || ''}</h3>
+            </div>    
+            <div className="detailItem ">  
+              <h3 className="itemKey">Email: </h3>
+              <h3 className="itemValue">{userData?.email || ''}</h3>
+            </div>
+            <div className="detailItem ">  
+              <h3 className="itemKey">Bio: </h3>
+              <h3 className="itemValue">{userData?.bio || ''}</h3>
+            </div>
+
+             
+              <div className="detailItem ">
+              <h3 className="itemKey">University: </h3>
+              <h3 className="itemValue">{userData?.university || ''}</h3>
+              </div>
+
+              <div className="detailItem ">
+              <h3 className="itemKey">Department: </h3>
+              <h3 className="itemValue">{userData?.department || ''}</h3>
+              </div>
+              
             </div>
           </div>
+        </div>
+
+        <div className="bottom">
+          <Table />
         </div>
       </div>
     </div>
   );
 };
 
-export default Single;
+export default SingleUser;
 

@@ -13,11 +13,9 @@ const Setting = () => {
       <div className="singleContainer">
         <Navbar />
         <Stack spacing={3}>
-      <div>
-        <Typography variant="h4">Settings</Typography>
-      </div>
-      <Notification />
-      <UpdatePasswordForm />
+          <h1>setting</h1>
+      
+   
     </Stack>
       </div>
     </div>

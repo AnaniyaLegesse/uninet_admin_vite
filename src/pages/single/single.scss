@@ -5,17 +5,61 @@
     flex: 6;
 
     .top {
-      padding: 20px;
+      padding: 60px;
       display: flex;
       gap: 20px;
 
       .left {
-        flex: 1;
+        flex: 2;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+          .contentImg{
+            width: 100%;
+            height:100%;
+            border-radius: 10%;
+            object-fit: cover;
+            margin-top: 5px;
+          }
+
+          .itemImg {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+          }
+          .summary {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content:space-around;
+            margin-top: 40px;
+      
+            .item {
+              text-align: center;
+      
+              .itemTitle {
+                font-size: 14px;
+                color: gray;
+              }
+            }
+          }
+      }
+
+      .right {
+        flex: 4;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         padding: 20px;
         position: relative;
 
+        
         .editButton {
           position: absolute;
           top: 0;
@@ -28,43 +72,31 @@
           border-radius: 0px 0px 0px 5px;
         }
 
-        .item {
-          display: flex;
-          gap: 20px;
-
-          .itemImg {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
+        .details {
+          .itemTitle {
+            margin-bottom: 20px;
+            color: #555;
           }
 
-          .details {
-            .itemTitle {
-              margin-bottom: 10px;
-              color: #555;
+          .detailItem {
+            margin-bottom: 10px;
+            font-size: 14px;
+            display: flex;
+            padding: 5px;
+            padding-left: 10px;
+
+            .itemKey {
+              font-weight: bold;
+              color: gray;
+              margin-right: 5px;
             }
 
-            .detailItem {
-              margin-bottom: 10px;
-              font-size: 14px;
-
-              .itemKey {
-                font-weight: bold;
-                color: gray;
-                margin-right: 5px;
-              }
-
-              .itemValue {
-                font-weight: 300;
-              }
+            .itemValue {
+              font-weight: 300;
             }
-          }
+          
         }
       }
-
-      .right {
-        flex: 2;
       }
     }
 

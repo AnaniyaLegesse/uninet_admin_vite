@@ -1,28 +1,26 @@
 import "./widget.scss";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import FeedIcon from "@mui/icons-material/Feed";
-import RecommendIcon from '@mui/icons-material/Recommend';
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
-  const [diff, setDiff] = useState(null);
+  const [totalContent, setTotalContent] = useState(null);
+
   let data;
 
   switch (type) {
-    case "user":
+    case "post":
       data = {
-        title: "USERS",
-        isMoney: false,
-        link: "See all users",
-        query:"users",
+        title: "POSTS",
+        link: "See all posts",
+        query:"post",
         icon: (
-          <PersonOutlinedIcon
+          <FeedOutlinedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -32,14 +30,13 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "content":
+    case "news":
       data = {
-        title: "CONTENTS",
-        isMoney: false,
-        link: "View all contents",
-        query:"contents",
+        title: "NEWS",
+        link: "View all news",
+        query:"news",
         icon: (
-          <FeedIcon
+          <NewspaperOutlinedIcon
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
@@ -49,14 +46,13 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "reaction":
+    case "announcment":
       data = {
-        title: "REACTIONS",
-        isMoney: false,
-        link: "View net reactions",
-        query:"reactions",
+        title: "ANNOUNCMENT",
+        link: "View all announcments",
+        query:"announcements",
         icon: (
-          <RecommendIcon
+          <AnnouncementOutlinedIcon
             className="icon"
             style={{ backgroundColor: "rgba(77, 71, 253, 0.2)", color: "blue" }}
           />
@@ -70,29 +66,9 @@ const Widget = ({ type }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const today = new Date();
-      const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
-      const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
-
-      const lastMonthQuery = query(
-        collection(db, data.query),
-        where("timeStamp", "<=", today),
-        where("timeStamp", ">", lastMonth)
-      );
-      const prevMonthQuery = query(
-        collection(db, data.query),
-        where("timeStamp", "<=", lastMonth),
-        where("timeStamp", ">", prevMonth)
-      );
-
-      const lastMonthData = await getDocs(lastMonthQuery);
-      const prevMonthData = await getDocs(prevMonthQuery);
-
-      setAmount(lastMonthData.docs.length);
-      setDiff(
-        ((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
-          100
-      );
+      const contentQuery = query(collection(db, 'contents'), where('postType', '==', data.query));
+      const contentSnapshot = await getDocs(contentQuery);
+      setTotalContent(contentSnapshot.size);
     };
     fetchData();
   }, []);
@@ -102,15 +78,15 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {data.isMoney && "$"} {totalContent}
         </span>
-        <span className="link">{data.link}</span>
+        <span className="link">
+        <Link to={`/contents/${data.query}`} style={{ textDecoration: "none" }}>
+          {data.link}
+        </Link> 
+          </span>
       </div>
       <div className="right">
-        <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
-          {diff < 0 ? <KeyboardArrowDownIcon/> : <KeyboardArrowUpIcon/> }
-          {diff} %
-        </div>
         {data.icon}
       </div>
     </div>

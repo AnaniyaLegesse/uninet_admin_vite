@@ -11,9 +11,9 @@ import {
 } from "firebase/firestore";
 import { auth, db, storage } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-
-import { sendEmail } from '../../mailer';
+import axios from 'axios';
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
@@ -32,7 +32,6 @@ const New = ({ inputs, title }) => {
     const password = Math.random().toString(36).slice(2, 10);
     setGeneratedPassword(password);
     console.log(password);
-
     setData((prevData) => ({
       ...prevData,
       password,
@@ -57,32 +56,20 @@ const New = ({ inputs, title }) => {
         timeStamp: serverTimestamp(),
       });
 
-
-      //Email for generated password
-      const newData={
-        email:data.email,
-        subject:'First Login passsword',
-        message:`Hi ${data.name}  welcome to Uninet! Use this Password use for your first Login ${generatedPassword} and change your password 
-          after you have succefully Loged in `,
-      };
-      const { email, subject, message } = newData;
-      sendEmail(email, subject, message);
-
-      // admin.firestore().collection('mail').add({
-      //   to: data.email,
-      //   message: {
-      //     subject: `Hello from ${data.name}`,
-      //     html: `Use this Password Login ${generatedPassword} and change your password 
-      //     after you have succefully Loged in`,
-      //   },
-      // })
+      admin.firestore().collection('mail').add({
+        to: data.email,
+        message: {
+          subject: `Hello from ${data.name}`,
+          html: `Use this Password Login ${generatedPassword} and change your password 
+          after you have succefully Loged in`,
+        },
+      })
 
       navigate(-1)
     } catch (err) {
       console.log(err);
     }
   };
-
 
   return (
     <div className="new">
@@ -93,7 +80,8 @@ const New = ({ inputs, title }) => {
            {title} 
         </div>
         <div className="bottom">
-        <form onSubmit={handleAdd}>
+              
+          <form onSubmit={handleAdd}>
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
@@ -146,7 +134,6 @@ const New = ({ inputs, title }) => {
               Submit
             </button>
           </form>
-          
         </div>
       </div>
     </div>
